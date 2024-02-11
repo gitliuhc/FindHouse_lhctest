@@ -3,7 +3,7 @@
 name: FindHouse_lhctest
 
 # Controls when the workflow will run
-on:
+#on:
 #  schedule:
 #    - cron: "*/5 * * * *" 
 
