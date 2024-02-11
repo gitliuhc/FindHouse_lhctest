@@ -17,6 +17,22 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v3
+      - name: Check time range
+        run: |
+          # Get the current hour in UTC
+          HOUR=$(date +"%H")
+
+          echo "HOUR:${HOUR}"
+          
+          # Check if outside 8 AM to 10 PM JST range
+          # UTC 23 PM to 13 PM
+          if [ $HOUR -lt 22 ] && [ $HOUR -gt 13 ]; then
+            echo "Current time is outside the schedule range. Exiting..."
+            exit 1
+          fi
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
