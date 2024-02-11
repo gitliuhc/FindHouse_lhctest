@@ -1,5 +1,5 @@
 ---
-title: 【{{ env.HOUSE_NAME }}】に空き部屋がございます。{{ date | date('dddd, MMMM Do') }}
+title: 【{{ env.HOUSE_NAME }}】に空き部屋がございます(LHC)。{{ date | date('dddd, MMMM Do') }}
 assignees: kevin-hans
 labels: new-found
 ---
