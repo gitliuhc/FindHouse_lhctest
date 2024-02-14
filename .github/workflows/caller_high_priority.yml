@@ -15,28 +15,28 @@ permissions:
   contents: read
 
 jobs:
-  check-time-range:
-    runs-on: ubuntu-latest
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v3
-      - name: Check time range
-        run: |
-          # Get the current hour in UTC
-          HOUR=$(date +"%H")
+  # check-time-range:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #     # - uses: actions/checkout@v3
+  #     - name: Check time range
+  #       run: |
+  #         # Get the current hour in UTC
+  #         HOUR=$(date +"%H")
 
-          echo "HOUR:${HOUR}"
+  #         echo "HOUR:${HOUR}"
           
-          # Check if outside 8 AM to 10 PM JST range
-          # UTC 22 PM to 13 PM(14,15)
-          if [ $HOUR -lt 22 ] && [ $HOUR -gt 14 ]; then
-            echo "Current time is outside the schedule range. Exiting..."
-            exit 1
-          fi
+  #         # Check if outside 8 AM to 10 PM JST range
+  #         # UTC 22 PM to 13 PM(14,15)
+  #         if [ $HOUR -lt 22 ] && [ $HOUR -gt 14 ]; then
+  #           echo "Current time is outside the schedule range. Exiting..."
+  #           exit 1
+  #         fi
           
   call-callee:
     runs-on: ubuntu-latest
-    needs: check-time-range
+    # needs: check-time-range
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
